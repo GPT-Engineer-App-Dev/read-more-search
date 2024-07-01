@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { CircleUser, Home, Menu, Package2 } from "lucide-react";
+import { CircleUser, Home, Menu, Newspaper } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 
 const sidebarItems = [
@@ -17,6 +17,11 @@ const sidebarItems = [
     title: "Home",
     to: "/",
     icon: <Home className="h-4 w-4" />,
+  },
+  {
+    title: "Top Stories",
+    to: "/",
+    icon: <Newspaper className="h-4 w-4" />,
   },
 ];
 
@@ -30,7 +35,7 @@ const Layout = () => {
           <div className="w-full flex-1">{/* Add nav bar content here! */}</div>
           <UserDropdown />
         </header>
-        <main className="flex-grow p-4 overflow-auto">
+        <main className="flex-grow p-4 overflow-auto bg-gray-50">
           <Outlet />
         </main>
       </div>
@@ -43,8 +48,8 @@ const Sidebar = () => (
     <div className="flex h-full max-h-screen flex-col gap-2">
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
         <NavLink to="/" className="flex items-center gap-2 font-semibold">
-          <Package2 className="h-6 w-6" />
-          <span>Acme Inc</span>
+          <Newspaper className="h-6 w-6" />
+          <span>Hacker News</span>
         </NavLink>
       </div>
       <div className="flex-1">
@@ -75,8 +80,8 @@ const MobileSidebar = () => (
           to="/"
           className="flex items-center gap-2 text-lg font-semibold mb-4"
         >
-          <Package2 className="h-6 w-6" />
-          <span className="sr-only">Acme Inc</span>
+          <Newspaper className="h-6 w-6" />
+          <span className="sr-only">Hacker News</span>
         </NavLink>
         {sidebarItems.map((item) => (
           <SidebarNavLink key={item.to} to={item.to}>
